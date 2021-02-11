@@ -1,14 +1,26 @@
+@charset 'utf-8';
 
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+//////////////////////////
+// define
+//////////////////////////
+@import "0_base/vars";
+@import "0_base/reset";
+@import "0_base/mixin";
+@import "0_base/utility";
 
-// Variables
-@import 'variables';
+//////////////////////////
+// common .l-
+// 共通・共有して使えるものをここにまとめておく
+//////////////////////////
+@import "1_common/*";
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+//////////////////////////
+// Component .c-
+// コンポーネントとして切り分けられそうな物をここに詰めておく。
+//////////////////////////
+@import "2_component/*/*";
 
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-}
+//////////////////////////
+// Project .p-
+//////////////////////////
+@import "3_project/*";
