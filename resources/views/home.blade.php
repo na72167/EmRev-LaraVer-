@@ -13,7 +13,6 @@
 <body>
 <!--ヘッダー読み込み-->
 
-
     <!-- ヘッダー関係 -->
     <header id="index-top" class="header js-toggle-sp-menu-target">
         <div class="header__content-wrap">
@@ -61,12 +60,13 @@
         <!-- 会員登録関係 -->
         <div class="hero__signup js-signup-style">
 
-        <form action="" method="post" class="hero__signup-formStyle">
+        {{-- postメソッド・uriに/register持ちのルーティングにアクセス --}}
+        <form method="post" class="hero__signup-formStyle" action="{{ route('register') }}">
+            @csrf
             <h2 class="hero__signup-title">SignUp</h2>
             <div class="hero__signup-commonMsgArea">
                 <!-- 接続エラー等のメッセージをここに出力させる。 -->
                 <!--例外処理発生時に出力されるメッセージを出す処理-->
-
             </div>
 
             <!-- メールアドレス入力欄 -->
@@ -74,11 +74,14 @@
             <!-- 後にphpでエラー時用のスタイルを付属させる様にする。 -->
 
             <label class="#">
-                <!-- バリに引っかかった際には$err_msに関連するvalueが入るので、それを判定元にerrクラスを付属させる。 -->
-                <!-- value内は入力記録の保持 -->
-                <input class="hero__signup-emailForm">
-                <!-- 後にphpでエラーメッセージを出力させる様にする。-->
+                <!-- バリに引っかかった際にはerrクラスを付属させる。 -->
+                <input class="hero__signup-emailForm @error('email') err @enderror" name="email" value="{{ old('email') }}">
                 <div class="hero__signup-areaMsg">
+                    @error('password')
+                        <span class="" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
             </label>
             </div>
@@ -87,9 +90,16 @@
             <div class="hero__signup-passwardField">
             <label class="#">
                 <!-- 後にphpでエラー時用のスタイルを付属させる様にする。 -->
-                <input class="hero__signup-passwordForm"">
-                <div class="hero__signup-areaMsg">
+                <input class="hero__signup-passwordForm @error('password') err @enderror" name="password" value="{{ old('password') }}">
 
+                <div class="hero__signup-areaMsg">
+                    {{-- rollについて --}}
+                    {{-- https://www.osaka-kyoiku.ac.jp/~joho/html5_ref/role_attr.php?menutype=2dtaldl01l02l03A0 --}}
+                    @error('password')
+                        <span class="" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
             </label>
             </div>
@@ -98,10 +108,9 @@
             <div class="hero__signup-confirmationPasswardField">
             <!-- 後にphpでエラー時用のスタイルを付属させる様にする。 -->
             <label class="#">
-                <input class="hero__signup-passwordConfirmationForm" name="password_re" type="password" placeholder="Confirmation Password" value="">
+                <input class="hero__signup-passwordConfirmationForm" name="password_confirmation" type="password" placeholder="Confirmation Password" value="">
             </label>
-            <div class="hero__signup-areaMsg">
-            </div>
+                {{-- 確認用パスワードはあくまでパスワードの比較用なのでバリを通す予定無し。 --}}
             </div>
 
             <div class="hero__signup-registerBtnField">
@@ -109,6 +118,9 @@
             </div>
 
         </form>
+
+
+
         </div>
 
 
@@ -116,6 +128,7 @@
         <div class="hero__login js-login-style hidden">
 
         <form action="" method="post" class="hero__login-formStyle">
+            @csrf
             <h2 class="hero__login-title">Login</h2>
                 <div class="hero__login-commonMsgArea">
                 <!-- 接続エラー等のメッセージをここに出力させる。 -->
