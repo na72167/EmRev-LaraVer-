@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers;
 
+use Log;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -55,18 +56,25 @@ class RegisterController extends Controller
         ]);
     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\User
-     */
-    protected function create(array $data)
+    Log::debug('取得したdata：'.print_r($_POST,true));
+
+    protected function register(array $request)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+        // 入力情報に対してバリテーションを行う
+        // confirmed name="xxx"のフィールドとname="xxx_confirmation"のフィールドが同一の値か検証される。
+        $ValidResult = Validator::make($request, [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
+
+        if($ValidResult->fails()){
+            Log::debug('失敗！');
+            // return User::create([
+            //     'name' => $request['name'],
+            //     'email' => $request['email'],
+            //     'password' => Hash::make($request['password']),
+            // ]);
+        }
     }
 }

@@ -13,14 +13,14 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        //laravel内でDBを扱う際にはSchemaクラスを扱う必要がある。
         Schema::create('users', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
+            /* fkey要設定 */
+            $table->bigIncrements('id',true);
+            $table->string('email',255)->unique();
+            $table->string('password',255);
+            $table->integer('roll')->default(100);
+            $table->tinyInteger('report_flg')->default(0);
+            $table->tinyInteger('delete_flg')->default(0);
             $table->timestamps();
         });
     }
