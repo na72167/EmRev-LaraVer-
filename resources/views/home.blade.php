@@ -61,7 +61,7 @@
         <div class="hero__signup js-signup-style">
 
         {{-- postメソッド・uriに/register持ちのルーティングにアクセス --}}
-        <form method="post" class="hero__signup-formStyle" action="{{ route('register') }}">
+        <form method="POST" class="hero__signup-formStyle" action="{{ route('register') }}">
             @csrf
             <h2 class="hero__signup-title">SignUp</h2>
             <div class="hero__signup-commonMsgArea">
@@ -71,19 +71,19 @@
 
             <!-- メールアドレス入力欄 -->
             <div class="hero__signup-emailaddressField">
-            <!-- 後にphpでエラー時用のスタイルを付属させる様にする。 -->
+                <!-- 後にphpでエラー時用のスタイルを付属させる様にする。 -->
 
-            <label class="#">
-                <!-- バリに引っかかった際にはerrクラスを付属させる。 -->
-                <input class="hero__signup-emailForm @error('email') err @enderror" name="email" value="{{ old('email') }}">
-                <div class="hero__signup-areaMsg">
-                    @error('password')
-                        <span class="" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-            </label>
+                <label class="#">
+                    <!-- バリに引っかかった際にはerrクラスを付属させる。 -->
+                    <input class="hero__signup-emailForm @error('email') err @enderror" name="email" value="{{ old('email') }}">
+                    <div class="hero__signup-areaMsg">
+                        @error('password')
+                            <span class="" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                </label>
             </div>
 
             <!-- パスワード入力 -->
@@ -120,48 +120,59 @@
         </form>
 
 
-
         </div>
 
 
         <!-- ログイン関係 -->
         <div class="hero__login js-login-style hidden">
 
-        <form action="" method="post" class="hero__login-formStyle">
-            @csrf
-            <h2 class="hero__login-title">Login</h2>
+            {{-- postメソッド・uriに/register持ちのルーティングにアクセス --}}
+            <form method="POST" class="hero__login-formStyle" action="{{ route('login') }}">
+                @csrf
+                <h2 class="hero__login-title">Login</h2>
                 <div class="hero__login-commonMsgArea">
-                <!-- 接続エラー等のメッセージをここに出力させる。 -->
-                <!--例外処理発生時に出力されるメッセージを出す処理-->
-
+                    <!-- 接続エラー等のメッセージをここに出力させる。 -->
+                    <!--例外処理発生時に出力されるメッセージを出す処理-->
                 </div>
 
-            <!-- メールアドレス入力欄 -->
-            <div class="hero__login-emailaddressField">
-                <!-- 後にphpでエラー時用のスタイルを付属させる様にする。 -->
-
-                <label class="#">
-                    <!-- バリに引っかかった際には$err_msに関連するvalueが入るので、それを判定元にerrクラスを付属させる。 -->
-                    <!-- value内は入力記録の保持 -->
-                    <input class="hero__login-emailForm" type="text" name="login-email" placeholder="Email" value="">
-                    <!-- 後にphpでエラーメッセージを出力させる様にする。-->
-                    <div class="hero__login-areaMsg">
-                    </div>
-                </label>
-            </div>
-
-            <!-- パスワード入力 -->
-            <div class="hero__login-passwardField">
-                <!-- 後にphpでエラー時用のスタイルを付属させる様にする。 -->
-                <input class="hero__login-passwordForm" type="password" name="login-pass" placeholder="Password" value="">
-                <div class="hero__login-areaMsg">
+                <!-- メールアドレス入力欄 -->
+                <div class="hero__login-emailaddressField">
+                    <!-- 後にphpでエラー時用のスタイルを付属させる様にする。 -->
+                    <label class="#">
+                        <!-- バリに引っかかった際にはerrクラスを付属させる。 -->
+                        <input class="hero__login-emailForm @error('email') err @enderror" name="email" value="{{ old('email') }}">
+                        <div class="hero__login-areaMsg">
+                            @error('password')
+                                <span class="" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </label>
                 </div>
-            </div>
 
-            <div class="hero__login-registerBtnField">
-                <input class="hero__login-registerBtn" type="submit" name="user_login" value="ログイン">
-            </div>
-        </form>
+                <!-- パスワード入力 -->
+                <div class="hero__login-passwardField">
+                    <label class="#">
+                        <!-- 後にphpでエラー時用のスタイルを付属させる様にする。 -->
+                        <input class="hero__login-passwordForm @error('password') err @enderror" name="password" value="{{ old('password') }}">
+                        <div class="hero__login-areaMsg">
+                            {{-- rollについて --}}
+                            {{-- https://www.osaka-kyoiku.ac.jp/~joho/html5_ref/role_attr.php?menutype=2dtaldl01l02l03A0 --}}
+                            @error('password')
+                                <span class="" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </label>
+                </div>
+
+                <div class="hero__login-registerBtnField">
+                    <input class="hero__login-registerBtn" type="submit" name="user_register" value="ログイン">
+                </div>
+
+            </form>
 
         </div>
 
@@ -217,6 +228,7 @@
         </span>
         </div>
     </div>
+
 
     <!-- レビューコンテンツ(今は仮レイアウトの都合上複数同じ要素を作っているがphpを書き始めた際にはfor文で回す) -->
     <div class="review__content-individual">
