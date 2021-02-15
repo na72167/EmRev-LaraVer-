@@ -1,42 +1,17 @@
-<?php
 
-  declare(strict_types=1);
-  require('vendor/autoload.php');
-  use \PDO;
-  use \RuntimeException;
-  use \Exception;
-  use classes\debug\debugFunction;
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>タイトル</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="./js/app.js"></script>
+</head>
 
-  debugFunction::logSessionSetUp();
-  debugFunction::debug('「「「「「「「「「「「「「「「「「「「');
-  debugFunction::debug('マイページ');
-  debugFunction::debug('「「「「「「「「「「「「「');
-  debugFunction::debugLogStart();
-
-  // タイトルの読み込み
-  $Page_Title = 'マイページ';
-  $Intro__Text_Title ='Review Register';
-  $Intro__Text_Sub ='マイページ画面';
-  $Intro__Img = 'src="src/img/docs.png"';
-  // ヘッドの読み込み
-  require('./head.php');
-?>
 <body>
-
-  <!--ヘッダー読み込み-->
-  <?php
-    require('./header.php');
-  ?>
-
-  <!-- ページ紹介要素ファイルの読み込み -->
-  <?php
-    require('./intro.php');
-    require('./designSpace.php');
-  ?>
-
-  <?php
-    require('./middleElement.php');
-  ?>
 
     <section class="mypeUserProfile">
       <div class="mypeUserProfile__img-wrap">
@@ -428,9 +403,5 @@
       <div class="mypeMyFavoriteList__ReviewListLink">投稿レビューをもっと見る</div>
     </section>
 
-  <?php
-  // フッター要素の読み込み
-    require('./footer.php');
-  ?>
 </body>
 </html>
