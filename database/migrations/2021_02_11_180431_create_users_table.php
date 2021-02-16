@@ -21,6 +21,8 @@ class CreateUsersTable extends Migration
             $table->integer('roll')->default(100);
             $table->tinyInteger('report_flg')->default(0);
             $table->tinyInteger('delete_flg')->default(0);
+            //次回からtimestamps()は使わない。
+            // https://qiita.com/ntm718/items/c77b76cad5c2bf7b31d8
             $table->timestamps();
         });
     }
