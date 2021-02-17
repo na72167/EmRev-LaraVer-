@@ -17,35 +17,36 @@
     <div class="passreReminder__content">
       <h1 class="passrePasswordReminder__title">Password Reminder</h1>
 
-      <form action="" method="post" class="form">
+    <form method="post" class="form"  action="{{ route('passRemindReceive') }}">
+        @csrf
         <p>ご指定のメールアドレスお送りした【パスワード再発行認証】メール内にある「認証キー」をご入力ください。</p>
-          <div class="area-msg">
-          </div>
+            <div class="area-msg">
+            </div>
 
-          <label class="">
+            <label class="">
             Email
-            <input type="text" name="email" value="">
-          </label>
+            <input type="text" name="email" placeholder="パスワードを変更したいユーザーのEmailを入力" value="">
+            </label>
 
         <div class="area-msg">
         </div>
 
         <label class="">
-          認証キー
-          <input type="text" name="token" placeholder="受信した認証キーを入力">
+            認証キー
+            <input type="text" name="token" placeholder="受信した認証キーを入力" value="">
         </label>
 
         <label class="">
-          変更後パスワード
-          <input type="text" name="password" placeholder="変更後パスワードを入力">
+            変更後パスワード
+            <input type="text" name="password" placeholder="変更後パスワードを入力" value="">
         </label>
 
         <div class="area-msg">
         </div>
         <div class="btn-container">
-          <input type="submit" class="btn btn-mid" name="send" value="再発行する">
+            <input type="submit" class="btn btn-mid" value="再発行する">
         </div>
-      </form>
+    </form>
 
     </div>
   </section>

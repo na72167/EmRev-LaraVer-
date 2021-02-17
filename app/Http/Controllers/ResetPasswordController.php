@@ -42,9 +42,10 @@ class ResetPasswordController extends Controller
             //メール送信
             $sendMailResult = $this->sendMail($from, $to, $subject, $comment,$access_token);
             if($sendMailResult === true){
-                return redirect('/passRemindReceive');
+                return view('/password/passRemindReceive');
             }elseif($sendMailResult === false){
-                return redirect('/passwordReset');
+                // フラッシュメッセージに「メールを送信する事が出来ませんでした。」と表示
+                return view('/password/passwordReminder');
             }
         }else{
             Log::debug('メールアドレスが合致しませんでした。');
