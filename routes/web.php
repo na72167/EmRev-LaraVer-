@@ -12,13 +12,14 @@ Route::get('/', function () {
 Route::post('/register','RegisterController@register')->name('register');
 Route::get('/logout','LoginController@logout');
 Route::post('/login','LoginController@login')->name('login');
+
 Route::get('/passwordReset', function () {
     return view('/password/passwordReminder');
-});
+})->name('passwordReset');
 Route::post('/passwordReset','ResetPasswordController@resetPassword')->name('passwordReset');
-Route::get('/passRemindReceive', function () {
-    return view('/password/passRemindReceive');
-});
+
+Route::post('/passRemindReceive','PassRemindReceiveController@passRemindReceive')->name('passRemindReceive');
+
 Route::get('/myPage/{id}', function () {
     return view('myPage');
 });
