@@ -60,6 +60,9 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+
+        //ミドルウェア機能の処理内容をなるべくわかる様に名前は書く。短縮キーはミドルウェアファイルのpass+語尾に::classを書く。
+        'check' => \App\Http\Middleware\CheckloggedIn::class
     ];
 
     /**

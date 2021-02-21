@@ -23,4 +23,6 @@ class RedirectIfAuthenticated
 
         return $next($request);
     }
+
+    // Authクラスの内容に間接的に処理を加えることについて調べる。
 }

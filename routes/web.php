@@ -23,3 +23,10 @@ Route::post('/passRemindReceive','PassRemindReceiveController@passRemindReceive'
 Route::get('/myPage/{id}', function () {
     return view('myPage');
 });
+
+
+
+
+// ルートを実行する際に行いたい処理を
+// Route::group([‘middleware’ => ‘check’],function(){
+// });
