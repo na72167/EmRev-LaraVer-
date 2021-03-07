@@ -35,7 +35,6 @@
                     <!-- メールアドレス入力欄 -->
                     <div class="hero__signup-emailaddressField">
                         <!-- 後にphpでエラー時用のスタイルを付属させる様にする。 -->
-
                         <label class="#">
                             <!-- バリに引っかかった際にはerrクラスを付属させる。 -->
                             <input class="hero__signup-emailForm @error('email') err @enderror" name="email" value="{{ old('email') }}">
