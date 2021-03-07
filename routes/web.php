@@ -15,6 +15,7 @@ Route::post('/login','LoginController@login')->name('login');
 Route::get('/passwordReset', function () {
     return view('/password/passwordReminder');
 })->name('passwordReset');
+
 Route::post('/passwordReset','ResetPasswordController@resetPassword')->name('passwordReset');
 Route::post('/passRemindReceive','PassRemindReceiveController@passRemindReceive')->name('passRemindReceive');
 
@@ -22,9 +23,11 @@ Route::get('/myPage/{id}', function () {
     return view('myPage');
 });
 
+//リンク先にログインユーザーのid属性を持たせる。
 Route::get('/profileEdit/{id?}', function () {
-    return view('profileEdit');
+    return view('/profileEdit');
 });
+Route::post('/profileEdit','profileEditController@profileEditAction')->name('profileEdit');;
 
 
 

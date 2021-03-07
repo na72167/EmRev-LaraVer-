@@ -12,20 +12,19 @@
 
 <body>
 
-  <section class="passrePasswordReminder">
-    <div class="passreReminder__content">
-        <h1 class="passrePasswordReminder__title">Password Reminder</h1>
-        <form method="POST" action="{{ route('passwordReset') }}">
-            {{-- フォーム送信をしたい場合は必ず@csrfが必要。 --}}
-            @csrf
-            <h4>メールアドレス</h4>
-            <p>ご指定のメールアドレス宛にパスワード再発行用のURLと認証キーをお送り致します。</p>
-            <input type="text" class="passrePasswordReminder__input" name="email" placeholder="ここにメールアドレスを入力">
-            <input type="submit" class="passrePasswordReminder__content-bottom" value="変更画面へ">
-        </form>
-    </div>
-  </section>
-
+    <section class="passrePasswordReminder">
+        <div class="passreReminder__content">
+            <h1 class="passrePasswordReminder__title">Password Reminder</h1>
+            <form method="POST" action="{{ route('passwordReset') }}">
+                {{-- フォーム送信をしたい場合は必ず@csrfが必要。 --}}
+                @csrf
+                <h4>メールアドレス</h4>
+                <p>ご指定のメールアドレス宛にパスワード再発行用のURLと認証キーをお送り致します。</p>
+                <input type="text" class="passrePasswordReminder__input" name="email" placeholder="ここにメールアドレスを入力">
+                <input type="submit" class="passrePasswordReminder__content-bottom" value="変更画面へ">
+            </form>
+        </div>
+    </section>
 
 </body>
 </html>
