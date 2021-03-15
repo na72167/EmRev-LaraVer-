@@ -29,9 +29,6 @@ Route::get('/profileEdit/{id?}', function () {
 });
 Route::post('/profileEdit','profileEditController@profileEditAction')->name('profileEdit');;
 
-
-
-
 // ルートを実行する際に行いたい処理を
 // Route::group([‘middleware’ => ‘check’],function(){
 // });

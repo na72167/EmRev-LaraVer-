@@ -61,6 +61,7 @@
             </nav>
         @show
 
+        {{-- メインコンテンツ部分の切り替え --}}
         @if ($__env->yieldContent('title') === 'Home')
             @yield('home')
         @elseif ($__env->yieldContent('title') === 'ProfileEdit')
