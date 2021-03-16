@@ -66,6 +66,8 @@
             @yield('home')
         @elseif ($__env->yieldContent('title') === 'ProfileEdit')
             @yield('profileEdit')
+        @elseif ($__env->yieldContent('title') === 'cList')
+            @yield('RegistCompanyList')
         @endif
 
         @section('footer')
