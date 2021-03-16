@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Http\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -33,6 +33,6 @@ class User extends Authenticatable
      */
     public function general_prof()
     {
-        return $this->hasOne('App\Core\Http\Models\General_prof', 'user_id');
+        return $this->hasOne('App\Http\Models\General_prof', 'user_id');
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Http\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,4 +13,21 @@ class Employee_review extends Model
         'rewarding_work', 'image_gap', 'business_outlook', 'strengths_and_weaknesses', 'annual_income_salary',
         'general_estimation_title', 'general_estimation', 'username', 'like_count', 'delete_flg', 'created_at', 'updated_at'
     ];
+
+    /**
+     * リレーション関係 : employee_id -> Company_information.id
+     */
+    public function Employee_id()
+    {
+        return $this->belongsTo('App\Http\Models\Contributor_prof', 'id');
+    }
+
+    /**
+     * リレーション関係 : review_company_id -> Company_information.id
+     */
+    public function Review_company_id()
+    {
+        return $this->belongsTo('App\Http\Models\Company_information', 'id');
+    }
+
 }

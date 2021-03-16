@@ -27,7 +27,12 @@ Route::get('/myPage/{id}', function () {
 Route::get('/profileEdit/{id?}', function () {
     return view('/profileEdit');
 });
-Route::post('/profileEdit','profileEditController@profileEditAction')->name('profileEdit');;
+
+Route::post('/profileEdit','profileEditController@profileEditAction')->name('profileEdit');
+
+//レビュー投稿関係
+Route::post('/companySerch','postReviewController@showRegistCompany');
+Route::post('/registCompanyList','postReviewController@showRegistCompany');
 
 // ルートを実行する際に行いたい処理を
 // Route::group([‘middleware’ => ‘check’],function(){
