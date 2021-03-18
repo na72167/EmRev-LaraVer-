@@ -11,90 +11,94 @@
         <section class="rigisRigisterReviewListSearch">
             <h1 class="rigisRigisterReviewListSearch__title">Company Search</h1>
             <form class="rigisRigisterReviewListSearch__form" method="POST">
-
-            <div class="rigisRigisterReviewListSearch__inputContentStyle">
-                <h1 class="rigisRigisterReviewListSearch__inputName">会社名</h1>
-                <input class="rigisRigisterReviewListSearch__inputStyle" name="company_name" placeholder="入力してください">
-            </div>
-
-            <div class="rigisRigisterReviewListSearch__inputContentStyle">
-                <h1 class="rigisRigisterReviewListSearch__inputName">代表者名</h1>
-                <input class="rigisRigisterReviewListSearch__inputStyle" name="representative" placeholder="入力してください">
-            </div>
-
-            <div class="rigisRigisterReviewListSearch__inputContentStyle">
-                <h1 class="rigisRigisterReviewListSearch__inputName">所在地</h1>
-                <input class="rigisRigisterReviewListSearch__inputStyle" name="location" placeholder="入力してください">
-            </div>
-
-            <div class="rigisRigisterReviewListSearch__inputContentStyle">
-                <h1 class="rigisRigisterReviewListSearch__inputName">業界</h1>
-                <input class="rigisRigisterReviewListSearch__inputStyle" name="industry" placeholder="入力してください">
-            </div>
-
-            <div class="rigisRigisterReviewListSearch__inputContentStyle">
-                <h1 class="rigisRigisterReviewListSearch__inputName">設立年度</h1>
-                <input class="rigisRigisterReviewListSearch__inputStyle" name="year_of_establishment" placeholder="入力してください">
-            </div>
-
-            <div class="rigisRigisterReviewListSearch__inputContentStyle">
-                <h1 class="rigisRigisterReviewListSearch__inputName">上場年</h1>
-                <input class="rigisRigisterReviewListSearch__inputStyle" name="listed_year" placeholder="入力してください">
-            </div>
-
-            <div class="rigisRigisterReviewListSearch__inputContentStyle">
-                <h1 class="rigisRigisterReviewListSearch__inputName">従業員数</h1>
-                <input class="rigisRigisterReviewListSearch__inputStyle" name="number_of_employees" placeholder="入力してください">
-            </div>
-
-            <div class="rigisRigisterReviewListSearch__inputContentStyle">
-                <h1 class="rigisRigisterReviewListSearch__inputName">口コミ数</h1>
-                <input class="rigisRigisterReviewListSearch__inputStyle" name="number_of_reviews" placeholder="入力してください">
-            </div>
-
-            <div class="rigisRigisterReviewListSearch__inputContentStyle">
-                <h1 class="rigisRigisterReviewListSearch__inputName">平均年収</h1>
-                <div class="rigisRigisterReviewListSearch__betweenStyleWrap">
-                <input class="rigisRigisterReviewListSearch__betweenStyle" name="average_annual_income" placeholder="入力してください">
-                <div class="rigisRigisterReviewListSearch__betweenStyleHoge">~</div>
-                <input class="rigisRigisterReviewListSearch__betweenStyle" placeholder="入力してください">
+                @csrf
+                <div class="rigisRigisterReviewListSearch__inputContentStyle">
+                    <h1 class="rigisRigisterReviewListSearch__inputName">会社名</h1>
+                    <input type="text" class="rigisRigisterReviewListSearch__inputStyle" name="company_name" placeholder="入力してください" value="{{ $title = session()->get('title') }}" autocomplete="title">
                 </div>
-            </div>
 
-
-            <div class="rigisRigisterReviewListSearch__inputContentStyle">
-                <h1 class="rigisRigisterReviewListSearch__inputName">平均年齢</h1>
-                <div class="rigisRigisterReviewListSearch__betweenStyleWrap">
-                <input class="rigisRigisterReviewListSearch__betweenStyle" name="average_age" placeholder="入力してください">
-                <div class="rigisRigisterReviewListSearch__betweenStyleHoge">~</div>
-                <input class="rigisRigisterReviewListSearch__betweenStyle" placeholder="入力してください">
+                <div class="rigisRigisterReviewListSearch__inputContentStyle">
+                    <h1 class="rigisRigisterReviewListSearch__inputName">代表者名</h1>
+                    <input type="text" class="rigisRigisterReviewListSearch__inputStyle" name="representative" placeholder="入力してください" value="{{ $representative = session()->get('representative') }}" autocomplete="representative">
                 </div>
-            </div>
+
+                <div class="rigisRigisterReviewListSearch__inputContentStyle">
+                    <h1 class="rigisRigisterReviewListSearch__inputName">所在地</h1>
+                    <input type="text" class="rigisRigisterReviewListSearch__inputStyle" name="location" placeholder="入力してください" value="{{ $location = session()->get('location') }}" autocomplete="location">
+                </div>
+
+                <div class="rigisRigisterReviewListSearch__inputContentStyle">
+                    <h1 class="rigisRigisterReviewListSearch__inputName">業界</h1>
+                    <input type="text" class="rigisRigisterReviewListSearch__inputStyle" name="industry" placeholder="入力してください" value="{{ $industry = session()->get('industry') }}" autocomplete="industry">
+                </div>
+
+                <div class="rigisRigisterReviewListSearch__inputContentStyle">
+                    <h1 class="rigisRigisterReviewListSearch__inputName">設立年度</h1>
+                    <input class="rigisRigisterReviewListSearch__inputStyle" name="year_of_establishment" placeholder="入力してください">
+                    <input type="text" class="rigisRigisterReviewListSearch__inputStyle" name="year_of_establishment" placeholder="入力してください" value="{{ $year_of_establishment = session()->get('year_of_establishment') }}" autocomplete="year_of_establishment">
+                </div>
+
+                <div class="rigisRigisterReviewListSearch__inputContentStyle">
+                    <h1 class="rigisRigisterReviewListSearch__inputName">上場年</h1>
+                    <input type="text" class="rigisRigisterReviewListSearch__inputStyle" name="listed_year" placeholder="入力してください" value="{{ $listed_year = session()->get('listed_year') }}" autocomplete="listed_year">
+                </div>
+
+                <div class="rigisRigisterReviewListSearch__inputContentStyle">
+                    <h1 class="rigisRigisterReviewListSearch__inputName">従業員数</h1>
+                    <input type="text" class="rigisRigisterReviewListSearch__inputStyle" name="number_of_employees" placeholder="入力してください" value="{{ $number_of_employees = session()->get('number_of_employees') }}" autocomplete="number_of_employees">
+                </div>
+
+                <div class="rigisRigisterReviewListSearch__inputContentStyle">
+                    <h1 class="rigisRigisterReviewListSearch__inputName">口コミ数</h1>
+                    <input class="rigisRigisterReviewListSearch__inputStyle" name="number_of_reviews" placeholder="入力してください">
+                    <input type="text" class="rigisRigisterReviewListSearch__inputStyle" name="number_of_reviews" placeholder="入力してください" value="{{ $number_of_reviews = session()->get('number_of_reviews') }}" autocomplete="number_of_reviews">
+                </div>
+
+                <div class="rigisRigisterReviewListSearch__inputContentStyle">
+                    <h1 class="rigisRigisterReviewListSearch__inputName">平均年収</h1>
+                    <div class="rigisRigisterReviewListSearch__betweenStyleWrap">
+                    <input class="rigisRigisterReviewListSearch__betweenStyle" name="average_annual_income" placeholder="入力してください">
+                    <div class="rigisRigisterReviewListSearch__betweenStyleHoge">~</div>
+                    <input class="rigisRigisterReviewListSearch__betweenStyle" placeholder="入力してください">
+                    </div>
+                </div>
 
 
-            <!-- <div class="rigisRigisterReviewListSearch__inputContentStyle">
-                <h1 class="rigisRigisterReviewListSearch__inputName">並び替え順序</h1>
-                <input class="rigisRigisterReviewListSearch__inputStyle" placeholder="入力してください">
-            </div> -->
+                <div class="rigisRigisterReviewListSearch__inputContentStyle">
+                    <h1 class="rigisRigisterReviewListSearch__inputName">平均年齢</h1>
+                    <div class="rigisRigisterReviewListSearch__betweenStyleWrap">
+                    <input class="rigisRigisterReviewListSearch__betweenStyle" name="average_age" placeholder="入力してください">
+                    <div class="rigisRigisterReviewListSearch__betweenStyleHoge">~</div>
+                    <input class="rigisRigisterReviewListSearch__betweenStyle" placeholder="入力してください">
+                    </div>
+                </div>
 
 
-            <input type="submit" class="rigisRigisterReviewListSearch__bottomStyle" name="search" value="検索する">
-            </form>
-        </section>
+                <!-- <div class="rigisRigisterReviewListSearch__inputContentStyle">
+                    <h1 class="rigisRigisterReviewListSearch__inputName">並び替え順序</h1>
+                    <input class="rigisRigisterReviewListSearch__inputStyle" placeholder="入力してください">
+                </div> -->
 
-        <section class="rigisRigisterReviewListSorting">
-            <h1 class="rigisRigisterReviewListSorting__title">Company Sorting</h1>
-            <form class="rigisRigisterReviewListSorting__form">
+                    <input type="submit" class="rigisRigisterReviewListSearch__bottomStyle" name="search" value="検索する">
+                </form>
+            </section>
 
-            <div class="rigisRigisterReviewListSorting__inputContentStyle">
-                <h1 class="rigisRigisterReviewListSorting__inputName">並び替え項目</h1>
-                <input class="rigisRigisterReviewListSorting__inputStyle" placeholder="入力してください">
-            </div>
-            <div class="rigisRigisterReviewListSorting__inputContentStyle">
-                <h1 class="rigisRigisterReviewListSorting__inputName">並び替え順序</h1>
-                <input class="rigisRigisterReviewListSorting__inputStyle" placeholder="入力してください">
-            </div>
-            <bottom class="rigisRigisterReviewListSorting__bottomStyle">並び替えをする</bottom>
+
+
+            {{-- =======ソートは後回し======= --}}
+            <section class="rigisRigisterReviewListSorting">
+                <h1 class="rigisRigisterReviewListSorting__title">Company Sorting</h1>
+                <form class="rigisRigisterReviewListSorting__form">
+
+                <div class="rigisRigisterReviewListSorting__inputContentStyle">
+                    <h1 class="rigisRigisterReviewListSorting__inputName">並び替え項目</h1>
+                    <input class="rigisRigisterReviewListSorting__inputStyle" placeholder="入力してください">
+                </div>
+                <div class="rigisRigisterReviewListSorting__inputContentStyle">
+                    <h1 class="rigisRigisterReviewListSorting__inputName">並び替え順序</h1>
+                    <input class="rigisRigisterReviewListSorting__inputStyle" placeholder="入力してください">
+                </div>
+                <bottom class="rigisRigisterReviewListSorting__bottomStyle">並び替えをする</bottom>
             </form>
         </section>
 
